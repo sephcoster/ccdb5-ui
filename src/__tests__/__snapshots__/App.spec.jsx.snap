@@ -1,402 +1,972 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`initial state renders the detail route 1`] = `
+<main
+  role="main"
+>
+  <section
+    className="card-container"
+  >
+    <nav
+      className="layout-row"
+    >
+      <div
+        className="back-to-search flex-fixed"
+      >
+        <button
+          className="a-btn a-btn__link"
+          onClick={[Function]}
+        >
+          <span
+            className="cf-icon cf-icon-left"
+          />
+          Back to search results
+        </button>
+      </div>
+      <div
+        className="meaning flex-fixed"
+      >
+        <a
+          href="https://www.consumerfinance.gov/complaint/data-use/"
+          target="_blank"
+        >
+          What do all these data points mean?
+        </a>
+      </div>
+    </nav>
+    <section
+      className="light-box"
+    >
+      <div
+        className="loading-box"
+      >
+        <span
+          className="cf-icon cf-icon-update cf-icon__before cf-icon__spin"
+        />
+        <span>
+          This page is loading
+        </span>
+      </div>
+    </section>
+  </section>
+</main>
+`;
+
 exports[`initial state renders without crashing 1`] = `
 <main
   className="content content__1-3"
-  role="main">
+  role="main"
+>
   <header
-    className="content_hero">
-    <h1>
+    className="content_hero"
+  >
+    <h1
+      className="content-header"
+    >
       Consumer Complaint Database
     </h1>
+    <h4
+      className="content-header"
+    >
+      Beta
+    </h4>
     <p>
-      Consumer complaints get added to this public database after the company has responded to the complaint (or after they\'ve had the complaint for 15 calendar days, whichever comes first). We only publish the description of what happened if the consumer agrees to share it and after we take steps to 
-      <a>
-        remove personal information
-      </a>
-      . Data is generally updated nightly.
+      Consumer complaints are added to this public database after the company has responded to the complaint, confirming a commercial relationship with the consumer, or after they've had the complaint for 15 calendar days, whichever comes first. We don’t verify all the facts alleged in complaints, but we do give companies the opportunity to publicly respond to complaints by selecting responses from a pre-populated list. Company-level information should be considered in the context of company size and/or market share.
     </p>
     <ul
-      className="m-list m-list__horizontal">
+      className="m-list m-list__horizontal"
+    >
       <li
-        className="m-list_item">
-        <a>
-          Database Disclaimers
-        </a>
-         |
+        className="m-list_item"
+      >
+        <button
+          className="a-btn a-btn__link"
+          onClick={[Function]}
+        >
+          More about the complaint database
+        </button>
       </li>
       <li
-        className="m-list_item">
-        <a>
+        className="m-list_item"
+      >
+        <a
+          href="https://www.consumerfinance.gov/complaint/data-use/"
+          target="_blank"
+        >
           How we use complaint data
         </a>
-         |
       </li>
       <li
-        className="m-list_item">
-        <a>
-          Technical Document
+        className="m-list_item"
+      >
+        <a
+          href="https://cfpb.github.io/api/ccdb/"
+          target="_blank"
+        >
+          Technical documentation
+        </a>
+      </li>
+      <li
+        className="m-list_item"
+      >
+        <a
+          href="https://data.consumerfinance.gov/dataset/Consumer-Complaints/s6ew-h6mp"
+          target="_blank"
+        >
+          View complaint data in Socrata
         </a>
       </li>
     </ul>
   </header>
   <div
-    className="content_wrapper">
-    <nav
-      className="searchBar">
+    className="content_wrapper"
+  >
+    <div
+      className="search-panel"
+    >
       <h2>
-        Search Complaint Data
+        Search complaint data 
       </h2>
-      <form
-        action=""
-        onSubmit={[Function]}>
-        <label
-          className="a-label a-label__heading"
-          htmlFor="searchText">
-          Search Within
-        </label>
-        <input
-          className="btn"
-          type="button"
-          value="Types" />
-        <input
-          id="searchText"
-          onChange={[Function]}
-          placeholder="Enter your search term(s)"
-          type="text"
-          value="foo" />
-        <input
-          className="btn primary"
-          type="submit"
-          value="Search" />
-      </form>
-    </nav>
+      <div>
+        <nav
+          className="search-bar"
+        >
+          <form
+            action=""
+            onSubmit={[Function]}
+          >
+            <h4>
+              Search Within
+            </h4>
+            <div
+              className="layout-row"
+            >
+              <div
+                className="cf-select flex-fixed"
+              >
+                <select
+                  aria-label="Choose which field will be searched"
+                  id="searchField"
+                  onChange={[Function]}
+                  value="all"
+                >
+                  <optgroup
+                    label="Search Within"
+                  >
+                    <option
+                      value="all"
+                    >
+                      All Data
+                    </option>
+                    <option
+                      value="company"
+                    >
+                      Company Name
+                    </option>
+                    <option
+                      value="complaint_what_happened"
+                    >
+                      Narratives
+                    </option>
+                  </optgroup>
+                </select>
+              </div>
+              <div
+                className="flex-all typeahead-portal"
+              >
+                <section
+                  className="typeahead "
+                  onBlur={[Function]}
+                  onFocus={[Function]}
+                >
+                  <div
+                    className="m-btn-inside-input input-contains-label"
+                  >
+                    <label
+                      className="input-contains-label_before input-contains-label_before__search"
+                    />
+                    <input
+                      aria-label="The term to search for"
+                      autoComplete="off"
+                      className="a-text-input"
+                      id="searchText"
+                      onChange={[Function]}
+                      onKeyDown={[Function]}
+                      placeholder="Enter your search term(s)"
+                      type="text"
+                      value="foo"
+                    />
+                    <button
+                      className="a-btn a-btn__link"
+                      onClick={[Function]}
+                    >
+                      <span
+                        className="cf-icon cf-icon-delete"
+                      />
+                      Clear
+                    </button>
+                  </div>
+                </section>
+              </div>
+              <button
+                className="a-btn flex-fixed"
+                type="submit"
+              >
+                Search
+              </button>
+              <div
+                className="advanced-container flex-fixed"
+              >
+                <a
+                  className="a-btn a-btn__link o-expandable_cue-open"
+                  onClick={[Function]}
+                >
+                  Show advanced search tips
+                </a>
+              </div>
+            </div>
+          </form>
+        </nav>
+      </div>
+    </div>
     <aside
-      className="content_sidebar">
+      className="content_sidebar"
+    >
       <section
-        className="filter-panel">
+        className="filter-panel"
+      >
         <h3>
           Filter results by...
         </h3>
         <section
-          className="single-checkbox">
-          <h5>
+          className="single-checkbox"
+        >
+          <h4>
             Only show complaints with narratives?
-          </h5>
+          </h4>
           <div
-            className="m-form-field m-form-field__checkbox">
+            className="m-form-field m-form-field__checkbox"
+          >
             <input
+              checked={false}
               className="a-checkbox"
-              id="theCheckbox"
-              type="checkbox" />
+              disabled={false}
+              id="filterHasNarrative"
+              onChange={[Function]}
+              type="checkbox"
+              value="has_narrative"
+            />
             <label
               className="a-label"
-              htmlFor="theCheckbox">
+              htmlFor="filterHasNarrative"
+            >
               Yes
             </label>
           </div>
         </section>
         <hr />
         <section
-          className="collapsible-filter">
+          className="o-expandable aggregation date-filter"
+        >
           <div
-            className="layout-row">
-            <h5
-              className="flex-all">
-              Date CFPB Received the complaint
-            </h5>
-            <div
-              className="flex-fixed toggle">
-              <a>
+            className="o-expandable_header o-expandable_target"
+          >
+            <h4
+              className="o-expandable_header-left o-expandable_label"
+            >
+              Date CFPB received the complaint
+            </h4>
+            <span
+              className="o-expandable_header-right o-expandable_link"
+            >
+              <button
+                className="a-btn a-btn__link o-expandable_cue o-expandable_cue-close"
+                onClick={[Function]}
+              >
                 Hide
-              </a>
-              <span
-                className="cf-icon cf-icon-minus-round" />
-            </div>
+                <span
+                  className="cf-icon cf-icon-minus-round"
+                />
+              </button>
+            </span>
           </div>
           <p />
-          <div
-            className="layout-row">
-            <div
-              className="flex-all">
-              <label
-                className="a-label a-label__heading">
-                From:
-              </label>
-              <input
-                type="date" />
-            </div>
-            <div
-              className="flex-all">
-              <label
-                className="a-label a-label__heading">
-                Through:
-              </label>
-              <input
-                type="date" />
-            </div>
+          <div>
+            <ul
+              className="date-inputs"
+            >
+              <li>
+                <label
+                  className="a-label a-label__heading body-copy"
+                >
+                  From
+                </label>
+                <div
+                  className="m-btn-inside-input"
+                >
+                  <input
+                    aria-describedby="input-error_message-from"
+                    className="a-text-input"
+                    max={null}
+                    min={2011-11-30T12:00:00.000Z}
+                    onChange={[Function]}
+                    placeholder="mm/dd/yyyy"
+                    size="15"
+                    value=""
+                  />
+                </div>
+              </li>
+              <li>
+                <label
+                  className="a-label a-label__heading body-copy"
+                >
+                  Through
+                </label>
+                <div
+                  className="m-btn-inside-input"
+                >
+                  <input
+                    aria-describedby="input-error_message-through"
+                    className="a-text-input"
+                    max={null}
+                    min={2011-11-30T12:00:00.000Z}
+                    onChange={[Function]}
+                    placeholder="mm/dd/yyyy"
+                    size="15"
+                    value=""
+                  />
+                </div>
+              </li>
+            </ul>
           </div>
         </section>
         <hr />
         <section
-          className="collapsible-filter">
+          className="o-expandable aggregation"
+        >
           <div
-            className="layout-row">
-            <h5
-              className="flex-all">
-              Matched Company Name
-            </h5>
-            <div
-              className="flex-fixed toggle">
-              <a>
+            className="o-expandable_header o-expandable_target"
+          >
+            <h4
+              className="o-expandable_header-left o-expandable_label"
+            >
+              Company name
+            </h4>
+            <span
+              className="o-expandable_header-right o-expandable_link"
+            >
+              <button
+                className="a-btn a-btn__link o-expandable_cue o-expandable_cue-close"
+                onClick={[Function]}
+              >
                 Hide
-              </a>
-              <span
-                className="cf-icon cf-icon-minus-round" />
-            </div>
+                <span
+                  className="cf-icon cf-icon-minus-round"
+                />
+              </button>
+            </span>
           </div>
           <p>
-            The company name as it appears in our complaint system, which may be different than the name the consumer provided in the complaint
+            The company name as it appears in our complaint system, which may be different than the name the consumer provided in their complaint
           </p>
-          <input
-            placeholder="Enter company name"
-            type="text" />
+          <section
+            className="typeahead "
+            onBlur={[Function]}
+            onFocus={[Function]}
+          >
+            <div
+              className="m-btn-inside-input input-contains-label"
+            >
+              <label
+                className="input-contains-label_before input-contains-label_before__search"
+              />
+              <input
+                autoComplete="off"
+                className="a-text-input"
+                onChange={[Function]}
+                onKeyDown={[Function]}
+                placeholder="Enter company name"
+                type="text"
+                value=""
+              />
+            </div>
+          </section>
+          <ul />
         </section>
         <hr />
         <section
-          className="collapsible-filter aggregation">
+          className="o-expandable aggregation"
+        >
           <div
-            className="layout-row">
-            <h5
-              className="flex-all">
-              Did company provide a timely response?
-            </h5>
-            <div
-              className="flex-fixed toggle">
-              <a>
+            className="o-expandable_header o-expandable_target"
+          >
+            <h4
+              className="o-expandable_header-left o-expandable_label"
+            >
+              Product / sub-product
+            </h4>
+            <span
+              className="o-expandable_header-right o-expandable_link"
+            >
+              <button
+                className="a-btn a-btn__link o-expandable_cue o-expandable_cue-close"
+                onClick={[Function]}
+              >
                 Hide
-              </a>
-              <span
-                className="cf-icon cf-icon-minus-round" />
+                <span
+                  className="cf-icon cf-icon-minus-round"
+                />
+              </button>
+            </span>
+          </div>
+          <p>
+            The type of product and sub-product the consumer identified in the complaint
+          </p>
+          <p>
+            <a
+              className="a-btn__link"
+              href="http://files.consumerfinance.gov/f/documents/201704_cfpb_Summary_of_Product_and_Sub-product_Changes.pdf"
+              target="_blank"
+            >
+              Recent changes to products and sub-products
+            </a>
+          </p>
+          <div>
+            <ul />
+          </div>
+        </section>
+        <hr />
+        <section
+          className="o-expandable aggregation"
+        >
+          <div
+            className="o-expandable_header o-expandable_target"
+          >
+            <h4
+              className="o-expandable_header-left o-expandable_label"
+            >
+              Issue / sub-issue
+            </h4>
+            <span
+              className="o-expandable_header-right o-expandable_link"
+            >
+              <button
+                className="a-btn a-btn__link o-expandable_cue o-expandable_cue-close"
+                onClick={[Function]}
+              >
+                Hide
+                <span
+                  className="cf-icon cf-icon-minus-round"
+                />
+              </button>
+            </span>
+          </div>
+          <p>
+            The type of issue and sub-issue the consumer identified in the complaint
+          </p>
+          <section
+            className="typeahead "
+            onBlur={[Function]}
+            onFocus={[Function]}
+          >
+            <div
+              className="m-btn-inside-input input-contains-label"
+            >
+              <label
+                className="input-contains-label_before input-contains-label_before__search"
+              />
+              <input
+                autoComplete="off"
+                className="a-text-input"
+                onChange={[Function]}
+                onKeyDown={[Function]}
+                placeholder="Enter name of issue"
+                type="text"
+                value=""
+              />
             </div>
+          </section>
+          <div>
+            <ul />
+          </div>
+        </section>
+        <hr />
+        <section
+          className="o-expandable aggregation"
+        >
+          <div
+            className="o-expandable_header o-expandable_target"
+          >
+            <h4
+              className="o-expandable_header-left o-expandable_label"
+            >
+              State
+            </h4>
+            <span
+              className="o-expandable_header-right o-expandable_link"
+            >
+              <button
+                className="a-btn a-btn__link o-expandable_cue o-expandable_cue-close"
+                onClick={[Function]}
+              >
+                Hide
+                <span
+                  className="cf-icon cf-icon-minus-round"
+                />
+              </button>
+            </span>
+          </div>
+          <p>
+            The state of the mailing address provided by the consumer
+          </p>
+          <section
+            className="typeahead "
+            onBlur={[Function]}
+            onFocus={[Function]}
+          >
+            <div
+              className="m-btn-inside-input input-contains-label"
+            >
+              <label
+                className="input-contains-label_before input-contains-label_before__search"
+              />
+              <input
+                autoComplete="off"
+                className="a-text-input"
+                onChange={[Function]}
+                onKeyDown={[Function]}
+                placeholder="Enter state name or abbreviation"
+                type="text"
+                value=""
+              />
+            </div>
+          </section>
+          <ul />
+        </section>
+        <hr />
+        <section
+          className="o-expandable aggregation"
+        >
+          <div
+            className="o-expandable_header o-expandable_target"
+          >
+            <h4
+              className="o-expandable_header-left o-expandable_label"
+            >
+              Zip code
+            </h4>
+            <span
+              className="o-expandable_header-right o-expandable_link"
+            >
+              <button
+                className="a-btn a-btn__link o-expandable_cue o-expandable_cue-close"
+                onClick={[Function]}
+              >
+                Hide
+                <span
+                  className="cf-icon cf-icon-minus-round"
+                />
+              </button>
+            </span>
+          </div>
+          <p>
+            The mailing ZIP code provided by the consumer
+          </p>
+          <section
+            className="typeahead "
+            onBlur={[Function]}
+            onFocus={[Function]}
+          >
+            <div
+              className="m-btn-inside-input input-contains-label"
+            >
+              <label
+                className="input-contains-label_before input-contains-label_before__search"
+              />
+              <input
+                autoComplete="off"
+                className="a-text-input"
+                onChange={[Function]}
+                onKeyDown={[Function]}
+                placeholder="Enter first three digits of ZIP code"
+                type="text"
+                value=""
+              />
+            </div>
+          </section>
+          <ul />
+        </section>
+        <hr />
+        <section
+          className="o-expandable aggregation"
+        >
+          <div
+            className="o-expandable_header o-expandable_target"
+          >
+            <h4
+              className="o-expandable_header-left o-expandable_label"
+            >
+              Did company provide a timely response?
+            </h4>
+            <span
+              className="o-expandable_header-right o-expandable_link"
+            >
+              <button
+                className="a-btn a-btn__link o-expandable_cue o-expandable_cue-open"
+                onClick={[Function]}
+              >
+                Show
+                <span
+                  className="cf-icon cf-icon-plus-round"
+                />
+              </button>
+            </span>
           </div>
           <p />
-          <ul>
-            <li
-              className="flex-fixed layout-row">
-              <input
-                aria-label="No"
-                checked={true}
-                className="flex-fixed"
-                type="checkbox" />
-              <span
-                className="flex-all bucket-key">
-                No
-              </span>
-              <span
-                className="flex-fixed bucket-count">
-                678845
-              </span>
-            </li>
-            <li
-              className="flex-fixed layout-row">
-              <input
-                aria-label="Yes"
-                checked={false}
-                className="flex-fixed"
-                type="checkbox" />
-              <span
-                className="flex-all bucket-key">
-                Yes
-              </span>
-              <span
-                className="flex-fixed bucket-count">
-                487578
-              </span>
-            </li>
-          </ul>
-          <div
-            className="flex-fixed">
-            <button
-              className="a-btn a-btn__link hover more">
-              + Show X more
-            </button>
-          </div>
         </section>
         <hr />
         <section
-          className="collapsible-filter aggregation">
+          className="o-expandable aggregation"
+        >
           <div
-            className="layout-row">
-            <h5
-              className="flex-all">
-              Company Response
-            </h5>
-            <div
-              className="flex-fixed toggle">
-              <a>
-                Hide
-              </a>
-              <span
-                className="cf-icon cf-icon-minus-round" />
-            </div>
+            className="o-expandable_header o-expandable_target"
+          >
+            <h4
+              className="o-expandable_header-left o-expandable_label"
+            >
+              Company response
+            </h4>
+            <span
+              className="o-expandable_header-right o-expandable_link"
+            >
+              <button
+                className="a-btn a-btn__link o-expandable_cue o-expandable_cue-open"
+                onClick={[Function]}
+              >
+                Show
+                <span
+                  className="cf-icon cf-icon-plus-round"
+                />
+              </button>
+            </span>
           </div>
           <p>
             How the company responded to the complaint
           </p>
-          <ul>
-            <li
-              className="flex-fixed layout-row">
-              <input
-                aria-label="Closed with explanation"
-                checked={false}
-                className="flex-fixed"
-                type="checkbox" />
-              <span
-                className="flex-all bucket-key">
-                Closed with explanation
-              </span>
-              <span
-                className="flex-fixed bucket-count">
-                574783
-              </span>
-            </li>
-            <li
-              className="flex-fixed layout-row">
-              <input
-                aria-label="Closed with monetary relief"
-                checked={false}
-                className="flex-fixed"
-                type="checkbox" />
-              <span
-                className="flex-all bucket-key">
-                Closed with monetary relief
-              </span>
-              <span
-                className="flex-fixed bucket-count">
-                151083
-              </span>
-            </li>
-            <li
-              className="flex-fixed layout-row">
-              <input
-                aria-label="Closed with non-monetary relief"
-                checked={false}
-                className="flex-fixed"
-                type="checkbox" />
-              <span
-                className="flex-all bucket-key">
-                Closed with non-monetary relief
-              </span>
-              <span
-                className="flex-fixed bucket-count">
-                94550
-              </span>
-            </li>
-            <li
-              className="flex-fixed layout-row">
-              <input
-                aria-label="Untimely response"
-                checked={false}
-                className="flex-fixed"
-                type="checkbox" />
-              <span
-                className="flex-all bucket-key">
-                Untimely response
-              </span>
-              <span
-                className="flex-fixed bucket-count">
-                26894
-              </span>
-            </li>
-            <li
-              className="flex-fixed layout-row">
-              <input
-                aria-label="Closed"
-                checked={false}
-                className="flex-fixed"
-                type="checkbox" />
-              <span
-                className="flex-all bucket-key">
-                Closed
-              </span>
-              <span
-                className="flex-fixed bucket-count">
-                19151
-              </span>
-            </li>
-            <li
-              className="flex-fixed layout-row">
-              <input
-                aria-label="Closed without relief"
-                checked={false}
-                className="flex-fixed"
-                type="checkbox" />
-              <span
-                className="flex-all bucket-key">
-                Closed without relief
-              </span>
-              <span
-                className="flex-fixed bucket-count">
-                4263
-              </span>
-            </li>
-            <li
-              className="flex-fixed layout-row">
-              <input
-                aria-label="Closed with relief"
-                checked={false}
-                className="flex-fixed"
-                type="checkbox" />
-              <span
-                className="flex-all bucket-key">
-                Closed with relief
-              </span>
-              <span
-                className="flex-fixed bucket-count">
-                1347
-              </span>
-            </li>
-            <li
-              className="flex-fixed layout-row">
-              <input
-                aria-label="In progress"
-                checked={false}
-                className="flex-fixed"
-                type="checkbox" />
-              <span
-                className="flex-all bucket-key">
-                In progress
-              </span>
-              <span
-                className="flex-fixed bucket-count">
-                587
-              </span>
-            </li>
-          </ul>
+        </section>
+        <hr />
+        <section
+          className="o-expandable aggregation"
+        >
           <div
-            className="flex-fixed">
-            <button
-              className="a-btn a-btn__link hover more">
-              + Show X more
-            </button>
+            className="o-expandable_header o-expandable_target"
+          >
+            <h4
+              className="o-expandable_header-left o-expandable_label"
+            >
+              Company public response
+            </h4>
+            <span
+              className="o-expandable_header-right o-expandable_link"
+            >
+              <button
+                className="a-btn a-btn__link o-expandable_cue o-expandable_cue-open"
+                onClick={[Function]}
+              >
+                Show
+                <span
+                  className="cf-icon cf-icon-plus-round"
+                />
+              </button>
+            </span>
           </div>
+          <p>
+            The company's optional public-facing response to a consumer's complaint
+          </p>
+        </section>
+        <hr />
+        <section
+          className="o-expandable aggregation date-filter"
+        >
+          <div
+            className="o-expandable_header o-expandable_target"
+          >
+            <h4
+              className="o-expandable_header-left o-expandable_label"
+            >
+              Date complaint sent to company
+            </h4>
+            <span
+              className="o-expandable_header-right o-expandable_link"
+            >
+              <button
+                className="a-btn a-btn__link o-expandable_cue o-expandable_cue-close"
+                onClick={[Function]}
+              >
+                Hide
+                <span
+                  className="cf-icon cf-icon-minus-round"
+                />
+              </button>
+            </span>
+          </div>
+          <p />
+          <div>
+            <ul
+              className="date-inputs"
+            >
+              <li>
+                <label
+                  className="a-label a-label__heading body-copy"
+                >
+                  From
+                </label>
+                <div
+                  className="m-btn-inside-input"
+                >
+                  <input
+                    aria-describedby="input-error_message-from"
+                    className="a-text-input"
+                    max={null}
+                    min={2011-11-30T12:00:00.000Z}
+                    onChange={[Function]}
+                    placeholder="mm/dd/yyyy"
+                    size="15"
+                    value=""
+                  />
+                </div>
+              </li>
+              <li>
+                <label
+                  className="a-label a-label__heading body-copy"
+                >
+                  Through
+                </label>
+                <div
+                  className="m-btn-inside-input"
+                >
+                  <input
+                    aria-describedby="input-error_message-through"
+                    className="a-text-input"
+                    max={null}
+                    min={2011-11-30T12:00:00.000Z}
+                    onChange={[Function]}
+                    placeholder="mm/dd/yyyy"
+                    size="15"
+                    value=""
+                  />
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <hr />
+        <section
+          className="o-expandable aggregation"
+        >
+          <div
+            className="o-expandable_header o-expandable_target"
+          >
+            <h4
+              className="o-expandable_header-left o-expandable_label"
+            >
+              Consumer consent
+            </h4>
+            <span
+              className="o-expandable_header-right o-expandable_link"
+            >
+              <button
+                className="a-btn a-btn__link o-expandable_cue o-expandable_cue-open"
+                onClick={[Function]}
+              >
+                Show
+                <span
+                  className="cf-icon cf-icon-plus-round"
+                />
+              </button>
+            </span>
+          </div>
+          <p>
+            Whether a consumer opted to publish their compaint narrative
+          </p>
+        </section>
+        <hr />
+        <section
+          className="o-expandable aggregation"
+        >
+          <div
+            className="o-expandable_header o-expandable_target"
+          >
+            <h4
+              className="o-expandable_header-left o-expandable_label"
+            >
+              How did the consumer submit the complaint to the CFPB?
+            </h4>
+            <span
+              className="o-expandable_header-right o-expandable_link"
+            >
+              <button
+                className="a-btn a-btn__link o-expandable_cue o-expandable_cue-open"
+                onClick={[Function]}
+              >
+                Show
+                <span
+                  className="cf-icon cf-icon-plus-round"
+                />
+              </button>
+            </span>
+          </div>
+          <p />
+        </section>
+        <hr />
+        <section
+          className="o-expandable aggregation"
+        >
+          <div
+            className="o-expandable_header o-expandable_target"
+          >
+            <h4
+              className="o-expandable_header-left o-expandable_label"
+            >
+              Tags
+            </h4>
+            <span
+              className="o-expandable_header-right o-expandable_link"
+            >
+              <button
+                className="a-btn a-btn__link o-expandable_cue o-expandable_cue-open"
+                onClick={[Function]}
+              >
+                Show
+                <span
+                  className="cf-icon cf-icon-plus-round"
+                />
+              </button>
+            </span>
+          </div>
+          <p>
+            Data that supports easier searching and sorting of complaints submitted by or on behalf of older Americans and/or servicemembers
+          </p>
         </section>
       </section>
     </aside>
     <section
-      className="results-panel content_main">
+      className="results-panel content_main"
+    >
       <summary
-        className="action-bar">
+        className="action-bar"
+      >
         <div>
           <h2>
-            Showing x of y complaints
+            Showing 
+            <span>
+              0
+            </span>
+             total complaints
           </h2>
         </div>
-        <div>
-          Page | Sort | Export
+        <div
+          className="layout-row"
+        >
+          <div
+            className="cf-select flex-fixed"
+          >
+            <select
+              id="choose-size"
+              onChange={[Function]}
+              value={25}
+            >
+              <option
+                value={10}
+              >
+                Show 
+                10
+                 results
+              </option>
+              <option
+                value={25}
+              >
+                Show 
+                25
+                 results
+              </option>
+              <option
+                value={50}
+              >
+                Show 
+                50
+                 results
+              </option>
+              <option
+                value={100}
+              >
+                Show 
+                100
+                 results
+              </option>
+            </select>
+          </div>
+          <div
+            className="cf-select flex-fixed"
+          >
+            <select
+              id="choose-sort"
+              onChange={[Function]}
+              value="created_date_desc"
+            >
+              <option
+                value="created_date_desc"
+              >
+                Sort by newest to oldest
+              </option>
+              <option
+                value="created_date_asc"
+              >
+                Sort by oldest to newest
+              </option>
+              <option
+                value="relevance_desc"
+              >
+                Sort by relevance
+              </option>
+              <option
+                value="relevance_asc"
+              >
+                Sort by relevance (asc)
+              </option>
+            </select>
+          </div>
+          <h4
+            className="flex-all"
+          >
+            <button
+              className="a-btn a-btn__link"
+              data-gtm_ignore="true"
+              onClick={[Function]}
+            >
+              Export results
+            </button>
+          </h4>
         </div>
       </summary>
-      <ul
-        className="cards-panel" />
+      <div />
+      <h2>
+        No results were found for your search
+      </h2>
+      <section
+        className="light-box"
+      >
+        <div
+          className="loading-box"
+        >
+          <span
+            className="cf-icon cf-icon-update cf-icon__before cf-icon__spin"
+          />
+          <span>
+            This page is loading
+          </span>
+        </div>
+      </section>
     </section>
   </div>
 </main>

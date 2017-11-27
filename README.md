@@ -4,12 +4,13 @@
 [![Coverage Status](https://coveralls.io/repos/github/cfpb/ccdb5-ui/badge.svg?branch=master)](https://coveralls.io/github/cfpb/ccdb5-ui?branch=master)
 
 **Description**:
-This application allows consumers to search complaints submitted to the CFPB by other consumers. 
+This application allows consumers to search complaints submitted to the CFPB by other consumers.
 
 #### Technology Stack
 This application is written in JavaScript and [Less](http://lesscss.org) within
-the [React](https://facebook.github.io/react/) framework.  It uses
-[Webpack](http://webpack.github.io/docs/) at runtime to manage module loading.
+the [React](https://facebook.github.io/react/) + [Redux](http://redux.js.org/) 
+framework.  It uses [Webpack](http://webpack.github.io/docs/) at runtime to 
+manage module loading.
 
 The code is written with the [ES6](http://es6-features.org/) feature set
 of JavaScript. Backwards compatibility is achieved by compiling the script with
@@ -21,15 +22,15 @@ Unit testing of the application is performed within
 
 [npm](https://www.npmjs.com/) is used to manage the build/test/deploy cycle.
 
-The `ccdb5_ui` (note the underscore) directory contains a thin [Django](https://www.djangoproject.com/) 
+The `ccdb5_ui` (note the underscore) directory contains a thin [Django](https://www.djangoproject.com/)
 implementation that allows it to be used as a plugin for
 [CFPB's public website](https://github.com/cfpb/cfgov-refresh).
 
 #### Status
-Pre-pre-alpha
+Pre-release
 
 #### Screenshot
-TODO
+![screen August 17, 2017](documentation/screenshot.png)
 
 ## Dependencies
 
@@ -37,6 +38,11 @@ This application depends on the following third-party components:
 
 1. [Capital Framework](https://cfpb.github.io/capital-framework/) - CFPB standard styling and controls
 1. [History](https://github.com/reacttraining/history) - Integrating the address bar with the application
+1. [moment](https://momentjs.com/) - Better date handling than native JavaScript
+
+It also contains portions adapted from:
+
+1. [react-typeahead](https://github.com/fmoo/react-typeahead)
 
 ## Installation
 
@@ -77,14 +83,29 @@ You will also see any lint errors in the console.
 Enter `Control-C` to exit development mode
 
 #### Build deployment package
-To build the app for production to the build folder:
+
+Our [Travis](https://travis-ci.org/cfpb/ccdb5-ui) configuration is set up to
+build a deployment package after every push to `master`.  If this needs to be
+done manually, here are the steps to build the app for production:
 
 ```bash
-npm run build
+npm version [major | minor | patch] -m [message]
 ```
 
-It bundles React in production mode and optimizes the build for the
+This will:
+1. Bump the version in `package.json` (and `package-lock.json` for npm > 5.0)
+1. Build the application in production mode and optimize the build for the
 best performance.
+1. Create a new Git tag for the incremented version
+1. Commit the changes with the message provided
+
+
+```bash
+git push
+git push --tags
+```
+
+This will push the latest changes to the repo and ensure the new tag is included
 
 ## How to test the software
 
@@ -96,10 +117,6 @@ npm test
 ```
 
 Enter `Control-C` to exit interactive watch mode
-
-#### Browser Testing
-
-`TODO`
 
 ## Known issues
 
@@ -134,4 +151,10 @@ repository's [Issue Tracker](https://github.com/cfpb/ccdb5-ui/issues).
 * https://github.com/markerikson/react-redux-links/blob/master/tips-and-best-practices.md
 * https://getstream.io/blog/react-redux-best-practices-gotchas/
 * https://tech.affirm.com/redux-patterns-and-anti-patterns-7d80ef3d53bc
+* https://github.com/gaearon/redux-devtools
+
+#### Travis building assets
+
+* https://gist.github.com/willprice/e07efd73fb7f13f917ea
+* https://github.com/JemsFramework/di/blob/release-current/.travis.yml
 

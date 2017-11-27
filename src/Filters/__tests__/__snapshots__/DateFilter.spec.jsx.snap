@@ -1,0 +1,199 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`component::DateFilter snapshot shows errors 1`] = `
+<section
+  className="o-expandable aggregation date-filter"
+>
+  <div
+    className="o-expandable_header o-expandable_target"
+  >
+    <h4
+      className="o-expandable_header-left o-expandable_label"
+    >
+      Date CFPB Received the complaint
+    </h4>
+    <span
+      className="o-expandable_header-right o-expandable_link"
+    >
+      <button
+        className="a-btn a-btn__link o-expandable_cue o-expandable_cue-close"
+        onClick={[Function]}
+      >
+        Hide
+        <span
+          className="cf-icon cf-icon-minus-round"
+        />
+      </button>
+    </span>
+  </div>
+  <p />
+  <div>
+    <ul
+      className="date-inputs"
+    >
+      <li>
+        <label
+          className="a-label a-label__heading body-copy"
+        >
+          From
+        </label>
+        <div
+          className="m-btn-inside-input"
+        >
+          <input
+            aria-describedby="input-error_message-from"
+            className="a-text-input"
+            max={2015-12-31T12:00:00.000Z}
+            min={2015-01-01T12:00:00.000Z}
+            onChange={[Function]}
+            placeholder="mm/dd/yyyy"
+            size="15"
+            value="1/1/2016"
+          />
+          <button
+            className="a-btn a-btn__link"
+            onClick={[Function]}
+          >
+            <span
+              className="cf-icon cf-icon-delete"
+            />
+          </button>
+        </div>
+      </li>
+      <li>
+        <label
+          className="a-label a-label__heading body-copy"
+        >
+          Through
+        </label>
+        <div
+          className="m-btn-inside-input"
+        >
+          <input
+            aria-describedby="input-error_message-through"
+            className="a-text-input"
+            max={2015-12-31T12:00:00.000Z}
+            min={2015-01-01T12:00:00.000Z}
+            onChange={[Function]}
+            placeholder="mm/dd/yyyy"
+            size="15"
+            value="1/1/2000"
+          />
+          <button
+            className="a-btn a-btn__link"
+            onClick={[Function]}
+          >
+            <span
+              className="cf-icon cf-icon-delete"
+            />
+          </button>
+        </div>
+      </li>
+    </ul>
+    <ul
+      className="messages"
+    >
+      <li
+        className="a-error-message"
+        id="input-error_message-ordered"
+        role="alert"
+      >
+        <span
+          aria-hidden="true"
+          className="cf-icon cf-icon-delete-round"
+        />
+        'From' must be less than 'Through'
+      </li>
+      <li
+        className="a-error-message"
+        id="input-error_message-through"
+        role="alert"
+      >
+        <span
+          aria-hidden="true"
+          className="cf-icon cf-icon-delete-round"
+        />
+        '1/1/2000' must be greater than 1/1/2015
+      </li>
+    </ul>
+  </div>
+</section>
+`;
+
+exports[`component::DateFilter snapshot supports no dates in the Redux Store 1`] = `
+<section
+  className="o-expandable aggregation date-filter"
+>
+  <div
+    className="o-expandable_header o-expandable_target"
+  >
+    <h4
+      className="o-expandable_header-left o-expandable_label"
+    >
+      Date CFPB Received the complaint
+    </h4>
+    <span
+      className="o-expandable_header-right o-expandable_link"
+    >
+      <button
+        className="a-btn a-btn__link o-expandable_cue o-expandable_cue-close"
+        onClick={[Function]}
+      >
+        Hide
+        <span
+          className="cf-icon cf-icon-minus-round"
+        />
+      </button>
+    </span>
+  </div>
+  <p />
+  <div>
+    <ul
+      className="date-inputs"
+    >
+      <li>
+        <label
+          className="a-label a-label__heading body-copy"
+        >
+          From
+        </label>
+        <div
+          className="m-btn-inside-input"
+        >
+          <input
+            aria-describedby="input-error_message-from"
+            className="a-text-input"
+            max={2015-12-31T12:00:00.000Z}
+            min={2015-01-01T12:00:00.000Z}
+            onChange={[Function]}
+            placeholder="mm/dd/yyyy"
+            size="15"
+            value=""
+          />
+        </div>
+      </li>
+      <li>
+        <label
+          className="a-label a-label__heading body-copy"
+        >
+          Through
+        </label>
+        <div
+          className="m-btn-inside-input"
+        >
+          <input
+            aria-describedby="input-error_message-through"
+            className="a-text-input"
+            max={2015-12-31T12:00:00.000Z}
+            min={2015-01-01T12:00:00.000Z}
+            onChange={[Function]}
+            placeholder="mm/dd/yyyy"
+            size="15"
+            value=""
+          />
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+`;

@@ -1,80 +1,104 @@
-import React from 'react';
-import { FormattedDate } from 'react-intl';
-import './ComplaintCard.less';
+import './ComplaintCard.less'
+import { FormattedDate } from 'react-intl'
+import React from 'react'
 
 const MAX_NARRATIVE = 300
 
 export default class ComplaintCard extends React.Component {
   render() {
     const row = this.props.row;
-
-    // Process the narrative
-    let narrative = row.complaint_what_happened || ""
-    const hasOverflow = narrative.length > MAX_NARRATIVE
-    narrative = narrative.substring(0, MAX_NARRATIVE)
+    const complaintIdPath = 'detail/' + row.complaint_id
 
     return (
       <li className="card-container">
         <div className="card">
           <div className="card-left layout-column">
-            <h3 className="to-detail"><a>{ row.complaint_id }</a></h3>
-            <h5>Matched company name</h5>
-            <span className="body-copy">{ row.company }</span>
+            <h3 className="to-detail">
+              <a href={ this._stripPossibleHighlight( complaintIdPath ) }>
+                { this._stripPossibleHighlight( row.complaint_id ) }
+              </a>
+            </h3>
+            <h4>Company name</h4>
+            { this._renderPossibleHighlight( row.company ) }
             <br />
-            <h5>Company response to consumer</h5>
-            <span className="body-copy">{ row.company_response }</span>
+            <h4>Company response to consumer</h4>
+            { this._renderPossibleHighlight( row.company_response ) }
             <br />
-            <h5>Timely response?</h5>
-            <span className="body-copy">{ row.timely }</span>
+            <h4>Timely response?</h4>
+            { this._renderPossibleHighlight( row.timely ) }
           </div>
           <div className="card-right layout-column">
             <div className="layout-row">
               <div className="layout-row">
-                <h5>Date received:</h5>
+                <h4>Date received:</h4>
                 <span className="body-copy">
                   <FormattedDate value={ row.date_received } />
                 </span>
               </div>
               <div className="spacer" />
               <div className="layout-row">
-                <h5>Consumer's state:</h5>
-                <span className="body-copy">{ row.state }</span>
+                <h4>Consumer's state:</h4>
+                { this._renderPossibleHighlight( row.state ) }
               </div>
             </div>
             <br />
-            <h5>Product</h5>
-            <h3>{ row.product }</h3>
-            { row.sub_product ? (
+            <h4>Product</h4>
+            <h3 dangerouslySetInnerHTML={ { __html: row.product } }></h3>
+            { row.sub_product ?
               <div className="layout-row">
                 <span className="body-copy subitem">Sub-product:</span>
-                <span className="body-copy">{ row.sub_product }</span>
-              </div>
-              ) : null
+                { this._renderPossibleHighlight( row.sub_product ) }
+              </div> :
+               null
             }
             <br />
-            <h5>Issue</h5>
-            <h3>{ row.issue }</h3>
-            { row.sub_issue ? (
+            <h4>Issue</h4>
+            <h3 dangerouslySetInnerHTML={ { __html: row.issue } }></h3>
+            { row.sub_issue ?
               <div className="layout-row">
                 <span className="body-copy subitem">Sub-issue:</span>
-                <span className="body-copy">{ row.sub_issue }</span>
-              </div>
-              ) : null
+                { this._renderPossibleHighlight( row.sub_issue ) }
+              </div> :
+               null
             }
-            <br />
-            { narrative ? (
-              <div>
-                <h5>Consumer Complaint Narrative</h5>
-                <span className="body-copy">
-                  { narrative }
-                  { hasOverflow ? (<span> <a>[...]</a></span>) : null }
-                </span>
-              </div>
-              ) : null
-            }
+            { this._renderNarrative(
+                row.complaint_what_happened || '', complaintIdPath
+              ) }
           </div>
         </div>
       </li>
-    );
+    )
   }
+
+  // --------------------------------------------------------------------------
+  // Helper methods
+
+  _stripPossibleHighlight( s ) {
+    const re = /(<em>)?(.*?)(<\/em>)?/gi
+    return s.replace( re, '$2' )
+  }
+
+  // --------------------------------------------------------------------------
+  // Subrender methods
+
+  _renderPossibleHighlight( s ) {
+    return <span className="body-copy"
+                 dangerouslySetInnerHTML={ { __html: s } }>
+           </span>
+  }
+
+  _renderNarrative( narrative, url ) {
+    const hasOverflow = narrative.length > MAX_NARRATIVE
+    narrative = narrative.substring( 0, MAX_NARRATIVE )
+
+    return narrative ?
+        <div>
+          <br />
+          <h4>Consumer Complaint Narrative</h4>
+            { this._renderPossibleHighlight( narrative ) }
+            { hasOverflow ? <span> <a href={ url }>[...]</a></span> : null }
+        </div> :
+       null
+  }
+
 }

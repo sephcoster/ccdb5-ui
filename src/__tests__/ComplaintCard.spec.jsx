@@ -2,6 +2,7 @@ import React from 'react';
 import { IntlProvider } from 'react-intl';
 import ComplaintCard from '../ComplaintCard';
 import renderer from 'react-test-renderer';
+import { MemoryRouter } from 'react-router';
 
 describe('initial state', () => {
   let item;
@@ -25,14 +26,16 @@ describe('initial state', () => {
       timely: 'Yes',
       zip_code: '20008',
       foo: 'do not show this'
-    };    
+    };
   })
 
   it('renders without crashing', () => {
     const target = renderer.create(
-      <IntlProvider locale="en">
-        <ComplaintCard key={item.complaint_id} row={item} />
-      </IntlProvider>
+      <MemoryRouter>
+        <IntlProvider locale="en">
+          <ComplaintCard key={item.complaint_id} row={item} />
+        </IntlProvider>
+      </MemoryRouter>
     );
 
     let tree = target.toJSON();
@@ -43,9 +46,11 @@ describe('initial state', () => {
   it('hides the section when there is no narrative', () => {
     delete item.complaint_what_happened;
     const target = renderer.create(
-      <IntlProvider locale="en">
-        <ComplaintCard key={item.complaint_id} row={item} />
-      </IntlProvider>
+      <MemoryRouter>
+        <IntlProvider locale="en">
+          <ComplaintCard key={item.complaint_id} row={item} />
+        </IntlProvider>
+      </MemoryRouter>
     );
 
     let tree = target.toJSON();
@@ -72,9 +77,11 @@ surprising in this. If they but knew it, almost all men in their degree, \
 some time or other, cherish very nearly the same feelings towards the \
 ocean with me.";
     const target = renderer.create(
-      <IntlProvider locale="en">
-        <ComplaintCard key={item.complaint_id} row={item} />
-      </IntlProvider>
+      <MemoryRouter>
+        <IntlProvider locale="en">
+          <ComplaintCard key={item.complaint_id} row={item} />
+        </IntlProvider>
+      </MemoryRouter>
     );
 
     let tree = target.toJSON();
@@ -85,9 +92,11 @@ ocean with me.";
   it('hides the section when there is no sub-issue', () => {
     delete item.sub_issue;
     const target = renderer.create(
-      <IntlProvider locale="en">
-        <ComplaintCard key={item.complaint_id} row={item} />
-      </IntlProvider>
+      <MemoryRouter>
+        <IntlProvider locale="en">
+          <ComplaintCard key={item.complaint_id} row={item} />
+        </IntlProvider>
+      </MemoryRouter>
     );
 
     let tree = target.toJSON();
@@ -98,14 +107,29 @@ ocean with me.";
   it('hides the section when there is no sub-product', () => {
     delete item.sub_product;
     const target = renderer.create(
-      <IntlProvider locale="en">
-        <ComplaintCard key={item.complaint_id} row={item} />
-      </IntlProvider>
+      <MemoryRouter>
+        <IntlProvider locale="en">
+          <ComplaintCard key={item.complaint_id} row={item} />
+        </IntlProvider>
+      </MemoryRouter>
     );
 
     let tree = target.toJSON();
     expect(tree).toMatchSnapshot();
     expect(tree).not.toContain('Delta');
   });
-});
 
+  it('removes <em> highlighting tags effectively from text', () => {
+    item.complaint_id = '<em>99990909</em>';
+    const target = renderer.create(
+      <MemoryRouter>
+        <IntlProvider locale="en">
+          <ComplaintCard key={item.complaint_id} row={item} />
+        </IntlProvider>
+      </MemoryRouter>
+    );
+    let tree = target.toJSON();
+    expect(tree).toMatchSnapshot();
+    expect(tree).not.toContain('<a href="detail/<em>99990909</em>"><em>99990909</em></a>');
+  })
+});

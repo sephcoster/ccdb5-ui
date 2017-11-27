@@ -1,17 +1,31 @@
-import { SEARCH_CHANGED } from '../constants'
 import { getComplaints } from './complaints'
+import { SEARCH_CHANGED } from '../constants'
 
-export function searchChanged(searchText, searchType) {
+/**
+* Notifies the application that a new search is being executed
+*
+* @param {string} searchText the text to search for
+* @param {string} searchField the field to search within
+* @returns {string} a packaged payload to be used by Redux reducers
+*/
+export function searchChanged( searchText, searchField ) {
   return {
     type: SEARCH_CHANGED,
     searchText,
-    searchType
+    searchField
   }
 }
 
-export default function search(searchText, searchType) {
+/**
+* Requests a new search
+*
+* @param {string} searchText the text to search for
+* @param {string} searchField the field to search within
+* @returns {function} a series of simple actions to execute
+*/
+export default function search( searchText, searchField ) {
   return dispatch => {
-      dispatch(searchChanged(searchText, searchType))
-      dispatch(getComplaints())
+    dispatch( searchChanged( searchText, searchField ) )
+    dispatch( getComplaints() )
   }
 }
